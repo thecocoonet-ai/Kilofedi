@@ -13,7 +13,7 @@
     @apply bg-indigo text-paper;
   }
   :focus-visible {
-    outline: 2px solid #5847f2;
+    outline: 2px solid #8b7cff;
     outline-offset: 3px;
   }
 }
@@ -26,3 +26,21 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Slow, ambient drift for the hero's abstract form — a single deliberate
+   loop, not scattered hover effects. */
+@keyframes drift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(0, -18px, 0) rotate(3deg); }
+}
+
+.hero-form {
+  animation: drift 10s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-form {
+    animation: none;
+  }
+}
+

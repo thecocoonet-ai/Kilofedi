@@ -29,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-paper text-ink font-sans antialiased">
+      <body className="bg-ink text-paper font-sans antialiased">
         {children}
       </body>
     </html>

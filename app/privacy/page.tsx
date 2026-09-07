@@ -2,7 +2,8 @@ export const metadata = { title: "Privacy Policy — Kilofedi" };
 
 export default function Privacy() {
   return (
-    <main className="mx-auto max-w-2xl px-6 py-24">
+    <main className="min-h-screen bg-paper text-ink">
+      <div className="mx-auto max-w-2xl px-6 py-24">
       <a href="/" className="text-sm text-clay hover:text-indigo">
         ← Back home
       </a>
@@ -38,6 +39,7 @@ export default function Privacy() {
           This is placeholder policy text — replace with a policy reviewed
           for your actual data practices and jurisdiction before launch.
         </p>
+      </div>
       </div>
     </main>
   );

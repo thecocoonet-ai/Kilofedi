@@ -2,7 +2,8 @@ export const metadata = { title: "Terms & Conditions — Kilofedi" };
 
 export default function Terms() {
   return (
-    <main className="mx-auto max-w-2xl px-6 py-24">
+    <main className="min-h-screen bg-paper text-ink">
+      <div className="mx-auto max-w-2xl px-6 py-24">
       <a href="/" className="text-sm text-clay hover:text-indigo">
         ← Back home
       </a>
@@ -31,6 +32,7 @@ export default function Terms() {
           This is placeholder legal text — replace with terms reviewed by
           counsel before launch.
         </p>
+      </div>
       </div>
     </main>
   );

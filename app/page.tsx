@@ -1,4 +1,5 @@
 import ContactForm from "./components/ContactForm";
+import HeroVisual from "./components/HeroVisual";
 
 const capabilities = [
   {
@@ -77,12 +78,13 @@ export default function Home() {
   return (
     <main>
       {/* Nav */}
-      <header className="sticky top-0 z-50 border-b border-clay/20 bg-paper/90 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-paper/10 bg-ink/90 backdrop-blur">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-          <a href="#top" className="font-display text-xl tracking-tight">
+          <a href="#top" className="flex items-center gap-2 font-display text-xl tracking-tight">
+            <span className="inline-block h-2.5 w-2.5 rounded-full bg-indigo" />
             Kilofedi
           </a>
-          <div className="hidden items-center gap-8 text-sm md:flex">
+          <div className="hidden items-center gap-8 text-sm text-paper/80 md:flex">
             <a href="#work" className="hover:text-indigo">Work</a>
             <a href="#capabilities" className="hover:text-indigo">Capabilities</a>
             <a href="#pricing" className="hover:text-indigo">Pricing</a>
@@ -90,7 +92,7 @@ export default function Home() {
           </div>
           <a
             href="#contact"
-            className="rounded-full bg-ink px-5 py-2 text-sm text-paper transition hover:bg-indigo"
+            className="rounded-full bg-paper px-5 py-2 text-sm text-ink transition hover:bg-indigo hover:text-paper"
           >
             Start a project
           </a>
@@ -98,37 +100,51 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section id="top" className="mx-auto max-w-6xl px-6 pb-20 pt-16 md:pb-28 md:pt-24">
-        <p className="mb-6 max-w-md text-sm text-clay">
-          A design and engineering studio working in short, focused sprints.
-        </p>
-        <h1 className="font-display text-4xl leading-[1.08] tracking-tight md:text-6xl">
-          We build the brand, the product, and the site — as one connected piece of work.
-        </h1>
-        <p className="mt-8 max-w-xl text-lg text-ink/70">
-          Kilofedi pairs designers and engineers on the same team, on the same
-          timeline, so nothing gets lost between the mockup and the shipped
-          product.
-        </p>
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <a
-            href="#contact"
-            className="rounded-full bg-indigo px-6 py-3 text-sm font-medium text-paper transition hover:opacity-90"
-          >
-            Tell us about your project
-          </a>
-          <a href="#work" className="text-sm underline underline-offset-4 hover:text-indigo">
-            See recent work
-          </a>
+      <section id="top" className="relative overflow-hidden border-b border-paper/10">
+        {/* oversized watermark wordmark, sat low behind the copy */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-16 left-1/2 -translate-x-1/2 select-none whitespace-nowrap font-display text-[22vw] font-normal leading-none text-paper/[0.04] md:text-[18vw]"
+        >
+          KILOFEDI
+        </span>
+
+        <div className="relative mx-auto grid max-w-6xl gap-12 px-6 pb-16 pt-16 md:grid-cols-2 md:items-center md:pb-24 md:pt-20">
+          <div>
+            <p className="mb-6 max-w-md text-sm text-paper/50">
+              A design and engineering studio working in short, focused sprints.
+            </p>
+            <h1 className="font-display text-4xl leading-[1.08] tracking-tight md:text-5xl">
+              We build the brand, the product, and the site — as one connected piece of work.
+            </h1>
+            <p className="mt-8 max-w-xl text-lg text-paper/60">
+              Kilofedi pairs designers and engineers on the same team, on the
+              same timeline, so nothing gets lost between the mockup and the
+              shipped product.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a
+                href="#contact"
+                className="rounded-full bg-indigo px-6 py-3 text-sm font-medium text-paper transition hover:opacity-90"
+              >
+                Tell us about your project
+              </a>
+              <a href="#work" className="text-sm text-paper/80 underline underline-offset-4 hover:text-indigo">
+                See recent work
+              </a>
+            </div>
+          </div>
+
+          <HeroVisual />
         </div>
       </section>
 
       {/* Work */}
-      <section id="work" className="border-t border-clay/20 bg-ink py-20 text-paper md:py-28">
+      <section id="work" className="border-b border-paper/10 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-12 flex items-end justify-between">
             <h2 className="font-display text-3xl md:text-4xl">Selected work</h2>
-            <span className="hidden text-sm text-paper/50 md:block">2023 — 2026</span>
+            <span className="hidden text-sm text-paper/40 md:block">2023 — 2026</span>
           </div>
           <div className="grid gap-px overflow-hidden rounded-2xl bg-paper/10 sm:grid-cols-2">
             {work.map((w) => (
@@ -147,31 +163,33 @@ export default function Home() {
       </section>
 
       {/* Capabilities */}
-      <section id="capabilities" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-        <h2 className="font-display text-3xl md:text-4xl">What we do</h2>
-        <p className="mt-4 max-w-xl text-ink/70">
-          Four disciplines, one team — so the brand and the build stay in
-          sync from the first sketch to launch.
-        </p>
-        <div className="mt-14 grid gap-10 sm:grid-cols-2">
-          {capabilities.map((c) => (
-            <div key={c.title} className="border-t border-clay/30 pt-6">
-              <h3 className="font-display text-xl">{c.title}</h3>
-              <ul className="mt-4 space-y-2 text-sm text-ink/70">
-                {c.items.map((i) => (
-                  <li key={i}>{i}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      <section id="capabilities" className="bg-paper py-20 text-ink md:py-28">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 className="font-display text-3xl md:text-4xl">What we do</h2>
+          <p className="mt-4 max-w-xl text-ink/70">
+            Four disciplines, one team — so the brand and the build stay in
+            sync from the first sketch to launch.
+          </p>
+          <div className="mt-14 grid gap-10 sm:grid-cols-2">
+            {capabilities.map((c) => (
+              <div key={c.title} className="border-t border-clay/30 pt-6">
+                <h3 className="font-display text-xl">{c.title}</h3>
+                <ul className="mt-4 space-y-2 text-sm text-ink/70">
+                  {c.items.map((i) => (
+                    <li key={i}>{i}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="border-t border-clay/20 bg-ink py-20 text-paper md:py-28">
+      <section id="pricing" className="border-y border-paper/10 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="font-display text-3xl md:text-4xl">Pricing</h2>
-          <p className="mt-4 max-w-xl text-paper/70">
+          <p className="mt-4 max-w-xl text-paper/60">
             Three ways to work with us — pick the shape, not just the size.
           </p>
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
@@ -209,33 +227,35 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="mx-auto max-w-3xl px-6 py-20 md:py-28">
-        <h2 className="font-display text-3xl md:text-4xl">Frequently asked</h2>
-        <div className="mt-10 divide-y divide-clay/20">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-5">
-              <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
-                {f.q}
-                <span className="ml-4 shrink-0 text-clay transition group-open:rotate-45">+</span>
-              </summary>
-              <p className="mt-3 text-sm text-ink/70">{f.a}</p>
-            </details>
-          ))}
+      <section id="faq" className="bg-paper py-20 text-ink md:py-28">
+        <div className="mx-auto max-w-3xl px-6">
+          <h2 className="font-display text-3xl md:text-4xl">Frequently asked</h2>
+          <div className="mt-10 divide-y divide-clay/20">
+            {faqs.map((f) => (
+              <details key={f.q} className="group py-5">
+                <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
+                  {f.q}
+                  <span className="ml-4 shrink-0 text-clay transition group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-sm text-ink/70">{f.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Contact */}
-      <section id="contact" className="border-t border-clay/20 bg-ink py-20 text-paper md:py-28">
+      <section id="contact" className="border-t border-paper/10 py-20 md:py-28">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-2">
           <div>
             <h2 className="font-display text-3xl md:text-4xl">
               Let&apos;s talk about your project
             </h2>
-            <p className="mt-4 max-w-md text-paper/70">
+            <p className="mt-4 max-w-md text-paper/60">
               Tell us what you&apos;re building. We reply within one business
               day with next steps.
             </p>
-            <p className="mt-8 text-sm text-paper/60">
+            <p className="mt-8 text-sm text-paper/50">
               Or write directly to{" "}
               <a href="mailto:studio@kilofedi.com" className="underline underline-offset-4">
                 studio@kilofedi.com
@@ -247,9 +267,9 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="mx-auto max-w-6xl px-6 py-10 text-sm text-clay">
+      <footer className="mx-auto max-w-6xl px-6 py-10 text-sm text-paper/40">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <span className="font-display text-lg text-ink">Kilofedi</span>
+          <span className="font-display text-lg text-paper">Kilofedi</span>
           <div className="flex gap-6">
             <a href="/privacy" className="hover:text-indigo">Privacy Policy</a>
             <a href="/terms" className="hover:text-indigo">Terms</a>
