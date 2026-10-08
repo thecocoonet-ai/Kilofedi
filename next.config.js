@@ -2,15 +2,16 @@
 
 const isProd = process.env.NODE_ENV === "production";
 
-// Content-Security-Policy: locked down to same-origin by default.
-// Loosen individual directives only as new third-party assets are added.
+// Allow the Calendly booking widget and iframe to load while keeping the rest
+// of the site locked down to a strict Content Security Policy.
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data:",
-  "font-src 'self' data:",
-  "connect-src 'self'",
+  `script-src 'self' 'unsafe-inline'${isProd ? "" : " 'unsafe-eval'"} https://assets.calendly.com https://*.calendly.com`,
+  "style-src 'self' 'unsafe-inline' https://assets.calendly.com https://*.calendly.com",
+  "img-src 'self' data: https: blob:",
+  "font-src 'self' data: https://assets.calendly.com",
+  "connect-src 'self' https://calendly.com https://*.calendly.com https://assets.calendly.com",
+  "frame-src 'self' https://calendly.com https://*.calendly.com",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
