@@ -4,7 +4,7 @@ import Capabilities from "./components/Capabilities";
 import brandLogo from "../The Cocoon Logo Type 2.jpg";
 import FSImage from "../re.jpg";
 import ISImage from "../Modern Architecture.jpg";
-import adesuaImage from "../adesua rhodes.jpg";
+import GBImage from "../gb.jpg";
 import AAImage from "../aa.jpg";
 import StephImage from "../Steph ade.jpg";
 import lineArtImage from "../line-art-transparent.png";
@@ -13,32 +13,32 @@ import lineArtImage from "../line-art-transparent.png";
 const work = [
   {
     name: "Fashion & Styling",
-    detail: "Visual identity & presence",
+    detail: "Visual identity & Presence",
     tag: "F & S",
     visual: FSImage,
   },
   {
     name: "Interior & Spatial Design",
-    detail: "Rebrand & Experience",
-    tag: "Activation & Governance",
+    detail: "Engineering physical environments",
+    tag: "I & S",
     visual: ISImage,
   },
   {
-    name: "Adesua Rhodes",
-    detail: "Brand identity & web presence",
-    tag: "BrandCraft[Brand Identity]",
-    visual: adesuaImage,
+    name: "Grooming & Beauty",
+    detail: "Sculpting the physical self into the dream self",
+    tag: "G & B",
+    visual: GBImage,
   },
   {
     name: "Authority & Articulation",
     detail: "Verbal, visual and sound design",
-    tag: "Sensory Design",
+    tag: "A & A",
     visual: AAImage,
   },
   
 ];
 
-const clients = ["Adaeze", "Northbeam", "Osaru", "Palmline", "Ferro", "Weld"];
+const clients = ["F & S", "I & S", "G & B", "A & A"];
 
 const featuredWork = [
   {
@@ -66,20 +66,20 @@ const plans = [
     name: "Pockets",
     blurb: "Single Offering",
     price: "From ₦250,000",
-    features: ["Fixed timeline & scope", "Design & Strategy Docs (Single)",  "Kilofedi Products", ],
+    features: ["Fixed timeline & scope", "Design & Strategy Docs (Single)",  "Kilofedi Products (Single)", ],
   },
   {
     name: "Full Circle",
     blurb: "Bundle Offering",
     price: "From ₦800,000",
-    features: ["Fixed timeline & scope", "Design & Strategy Docs (Bundle)" , "Kilofedi Products", "Intensive Training", ],
+    features: ["Fixed timeline & scope", "Design & Strategy Docs (Bundle)" , "Kilofedi Products (Bundle)", "Intensive Training", ],
     featured: true,
   },
   {
     name: "Retainer",
-    blurb: "A few hours a month to pressure-test decisions before you ship.",
+    blurb: "Evolutionary Offering",
     price: "₦150,000 / month",
-    features: ["Monthly Implementation Review", "Slack access", "Roadmap input", "No build work included"],
+    features: ["Monthly Implementation Review", "Kilofedi Products (Retainer)", "Continuous Training Advisory"],
   },
 ];
 
