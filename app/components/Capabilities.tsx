@@ -1,114 +1,60 @@
-"use client";
-
-import { useState } from "react";
-
-interface ServiceItem {
-  id: string;
-  title: string;
-  description: string;
-}
-
-const services: ServiceItem[] = [
-  {
-    id: "01",
-    title: "Fashion & Styling",
-    description:
-      "Culturing a visual identity and presence through wardrobe and silhouettes exuding Intent and Power.",
-  },
-  {
-    id: "02",
-    title: "Interior & Spatial Design",
-    description:
-      "Engineering physical environments from executive suites to brand flagships to mirror authority, evoke specific psychological responses, and command high-value interactions.",  },
-  {
-    id: "03",
-    title: "Grooming & Beauty",
-    description:
-      "Sculpting the physical self into the dream self through skincare, hair care, facial grooming, fragrances, and signature details.",
-  },
-  {
-    id: "04",
-    title: "Authority & Articulation",
-    description:
-      "Bringing the rebrand to the world, then measuring, benchmarking and governing it going forward.",
-  },
-];
+import Link from "next/link";
+import { capabilities } from "../content/capabilities";
 
 export default function Capabilities() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const upperServices = capabilities.slice(0, 4);
+  const lowerServices = capabilities.slice(4);
+
+  const renderServices = (services: typeof capabilities) => (
+    <ol>
+      {services.map((service) => (
+        <li
+          key={service.id}
+          className="border-t border-[#8A8779]/70 transition-colors last:border-b hover:bg-[#1A1A1A]/[0.025]"
+        >
+          <Link
+            href={`/capabilities/${service.slug}`}
+            className="group grid grid-cols-[2rem_minmax(0,1fr)_1.5rem] items-start gap-x-4 py-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D45C55] sm:grid-cols-[3rem_minmax(0,1fr)_2rem] sm:gap-x-5 sm:py-7 lg:gap-x-7"
+          >
+            <span className="pt-1 font-serif text-lg font-large text-[#1A1A1A] sm:text-xl">
+              {service.id}
+            </span>
+            <h3 className="min-w-0 font-serif text-2xl font-normal leading-tight tracking-[-0.035em] transition-transform duration-300 group-hover:translate-x-1 sm:text-3xl">
+            {service.title}
+            </h3>
+            <span
+              aria-hidden="true"
+              className="pt-1 text-xl text-[#1A1A1A]/60 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#D45C55] sm:justify-self-end"
+            >
+             <b> __</b>
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ol>
+  );
 
   return (
     <section
       id="capabilities"
-      className="relative flex w-full flex-col justify-between overflow-hidden bg-[#F2EFE9] py-24 font-sans text-[#1A1A1A] md:py-32"
+      className="bg-[#F2EFE9] px-4 py-5 font-sans text-[#1A1A1A] sm:px-6 sm:py-8 lg:px-8"
     >
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-start gap-16 px-6 md:px-12 lg:grid-cols-12 lg:gap-12 xl:px-16">
-        <div className="flex flex-col items-start space-y-4 lg:sticky lg:top-24 lg:col-span-5">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#6A6A68]">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-start gap-12 bg-[#F2EFE9] px-6 py-12 sm:px-10 sm:py-16 lg:grid-cols-12 lg:gap-x-12 lg:gap-y-16 lg:px-14 lg:py-20">
+        <header className="flex flex-col items-start space-y-4 lg:col-start-1 lg:col-span-6 lg:row-start-1">
+          <span className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-[#1A1A1A]/45">
             Capabilities
           </span>
-          <h2 className="max-w-md font-serif text-5xl font-normal leading-[1.05] tracking-wide text-[#1A1A1A] md:text-6xl">
-            How We <br />Shape Your <br />Evolution.
+          <h2 className="max-w-md text-5xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-7xl">
+            How we can help you
           </h2>
+        </header>
+
+        <div className="w-full lg:col-start-7 lg:col-span-6 lg:row-start-1">
+          {renderServices(upperServices)}
         </div>
 
-        <div className="flex w-full flex-col lg:col-span-7">
-          {services.map((service, index) => {
-            const isOpen = openIndex === index;
-            const panelId = `capability-panel-${service.id}`;
-
-            return (
-              <div
-                key={service.id}
-                className="flex w-full flex-col border-t border-[#1A1A1A]/40 first:border-t-0"
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="group flex w-full select-none items-center justify-between py-7 text-left focus-visible:outline-[#1A1A1A] md:py-8"
-                  aria-expanded={isOpen}
-                  aria-controls={panelId}
-                >
-                  <span className="flex min-w-0 items-center gap-4 md:gap-6">
-                    <span className="shrink-0 font-serif text-2xl font-normal tracking-tight text-[#1A1A1A] md:text-3xl">
-                      {service.id}
-                    </span>
-                    <span className="font-serif text-2xl font-normal tracking-tight text-[#1A1A1A] transition-transform duration-300 group-hover:translate-x-1.5 md:text-3xl">
-                      {service.title}
-                    </span>
-                  </span>
-
-                  <span className="relative ml-4 flex h-5 w-5 shrink-0 items-center justify-center" aria-hidden="true">
-                    <span
-                      className="absolute h-[1.5px] w-4 bg-[#1A1A1A] transition-transform duration-300 ease-out"
-                      style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}
-                    />
-                    <span
-                      className="absolute h-4 w-[1.5px] bg-[#1A1A1A] transition-transform duration-300 ease-out"
-                      style={{ transform: isOpen ? "rotate(45deg)" : "rotate(90deg)" }}
-                    />
-                  </span>
-                </button>
-
-                <div
-                  id={panelId}
-                  className={`grid overflow-hidden pl-9 transition-all duration-500 ease-in-out md:pl-12 ${
-                    isOpen
-                      ? "grid-rows-[1fr] pb-8 opacity-100"
-                      : "grid-rows-[0fr] pb-0 opacity-0"
-                  }`}
-                  aria-hidden={!isOpen}
-                >
-                  <div className="overflow-hidden">
-                    <p className="max-w-xl text-base font-light leading-relaxed text-[#4A4A46] md:text-lg">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-          <div className="w-full border-b border-[#1A1A1A]/40" />
+        <div className="w-full lg:col-start-1 lg:col-span-6 lg:row-start-2">
+          {renderServices(lowerServices)}
         </div>
       </div>
     </section>

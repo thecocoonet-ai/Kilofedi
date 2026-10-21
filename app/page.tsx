@@ -7,7 +7,7 @@ import ISImage from "../Modern Architecture.jpg";
 import GBImage from "../gb.jpg";
 import AAImage from "../aa.jpg";
 import StephImage from "../Steph ade.jpg";
-import lineArtImage from "../line-art-transparent.png";
+import guyImage from "../line-art-transparent.png";
 
 
 const work = [
@@ -156,7 +156,7 @@ export default function Home() {
 
           <div className="flex min-h-[350px] w-full items-center justify-center md:min-h-[500px] lg:col-span-7 lg:justify-end">
             <Image
-              src={lineArtImage}
+              src={guyImage}
               alt="Single-line illustration of a face transforming into a wing"
               priority
               className="h-auto w-full max-w-[500px]"
