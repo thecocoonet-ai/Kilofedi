@@ -25,7 +25,7 @@ export const capabilities: Capability[] = [
       "Practical recommendations and a clear action plan",
     ],
     pricing:
-      "The cost of our consultancy engagements is based on the scope of the project and the duration of the advisory period, with services starting at 5.5 million Naira.",
+      "The cost of our consultancy engagements is based on the scope of the project and the duration of the advisory period, with services starting at 550 Thousand Naira.",
   },
   {
     id: "02",
@@ -42,7 +42,7 @@ export const capabilities: Capability[] = [
       "Publishing, community support, and performance reviews",
     ],
     pricing:
-      "Social media management is structured around your target platforms and content volume, starting at ₦550,000 monthly. Your retainer covers strategic content creation, editorial copywriting, visual asset coordination, community oversight, and monthly growth analytics,",
+      "Social media management is structured around your target platforms and content volume, starting at ₦550,000 monthly. Your retainer covers strategic content creation, editorial copywriting, visual asset coordination, community oversight, and monthly growth analytics.",
   },
   {
     id: "03",
@@ -58,6 +58,8 @@ export const capabilities: Capability[] = [
       "Logo suite, colour palette, and typography",
       "Voice guidance and practical brand-use guidelines",
     ],
+    pricing:
+      "Brand identity pricing is based on the scope of the identity system, the number of required assets, and the depth of the brand guidelines. We’ll provide a tailored quote after discussing your needs.",
   },
   {
     id: "04",
@@ -73,6 +75,8 @@ export const capabilities: Capability[] = [
       "Press materials and launch communications",
       "Media outreach planning and visibility support",
     ],
+    pricing:
+      "PR services are priced according to your communications goals, campaign scope, and the duration of support. We’ll provide a tailored quote after discussing your needs.",
   },
   {
     id: "05",
@@ -88,6 +92,8 @@ export const capabilities: Capability[] = [
       "Responsive interface and interaction design",
       "Development, quality checks, and launch support",
     ],
+    pricing:
+      "Web and app development pricing depends on the project’s features, complexity, and delivery scope. We’ll provide a tailored quote after discussing your requirements.",
   },
   {
     id: "06",
@@ -103,6 +109,8 @@ export const capabilities: Capability[] = [
       "Interview planning and production",
       "Editing, sound, and a finished film for your intended channels",
     ],
+    pricing:
+      "Documentary pricing is based on the film’s length, research and production requirements, and post-production scope. We’ll provide a tailored quote after discussing your project.",
   },
   {
     id: "07",
@@ -118,5 +126,7 @@ export const capabilities: Capability[] = [
       "Portrait, product, campaign, or editorial photography",
       "A curated, edited image library for agreed uses",
     ],
+    pricing:
+      "Photography pricing depends on the shoot type, production requirements, and intended image usage. We’ll provide a tailored quote after discussing your brief.",
   },
 ];
